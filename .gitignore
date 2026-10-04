@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+results/figures/*.png
+!results/figures/.gitkeep
+results/tables/*.csv
+!results/tables/.gitkeep
+results/tables/*.json
+data/processed/*
+!data/processed/.gitkeep
+data/live_cache/*
+!data/live_cache/.gitkeep
+.DS_Store

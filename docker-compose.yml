@@ -1,0 +1,22 @@
+services:
+  research:
+    build: .
+    image: maths-hacks-verified-2026:1.0.0
+    container_name: maths-hacks-research
+    volumes:
+      - ./results:/workspace/results
+      - ./data:/workspace/data
+    environment:
+      - PYTHONPATH=/workspace/src:$PYTHONPATH
+      - MH_SEED=12345
+      - MH_OFFLINE_OK=1
+    command: bash -c "pytest -v tests/ && python experiments/run_all.py && python benchmarks/benchmark_all.py"
+
+  # Lightweight one-shot verification (no volume writes, CI-friendly)
+  verify:
+    build: .
+    image: maths-hacks-verified-2026:1.0.0
+    environment:
+      - PYTHONPATH=/workspace/src:$PYTHONPATH
+      - MH_SEED=12345
+    command: bash -c "pytest -v tests/"

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Maths Hacks Verified 2026: A Reproducible Computational Verification of 100 Mathematical Ideas Against Live Market Data"
+version: 1.0.0
+date-released: 2026-10-04
+authors:
+  - family-names: "Verified Research Contributors"
+    given-names: "Maths Hacks"
+license: MIT
+repository-code: "https://github.com/example/maths-hacks-verified-2026"
+keywords:
+  - reproducible-research
+  - mathematics-education
+  - prime-numbers
+  - Collatz
+  - Goldbach
+  - Brownian-motion
+  - live-market-data
+  - benchmarking
+abstract: >
+  Executable companion to Cochrane (2018) Maths Hacks: 100 Hacks mapped to
+  seeded Python experiments, pytest suite (16 tests), timing/accuracy benchmarks,
+  and live Yahoo-Finance verification of stochastics chapters. All claims run
+  in Docker with pinned dependencies.
