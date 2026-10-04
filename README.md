@@ -139,7 +139,7 @@ Then show the GIF. That is more signal than most candidates bring.
 ## ✨ Features — everything this repo does
 
 - **100/100 Hacks executed:** all 100 in `experiments/run_all.py` (109 keys incl. `DISC_*`) via `src/maths_hacks/` + `missing40.py`. Tricks of the Trade (#1–13), Numerous Numbers (#14–34), Science of Structure (#35–49), Continuity (#50–56), Maths in Space (#57–88), Maths Meets Reality (#89–100). Open conjectures are *verified to limits and surveyed* — never over-claimed.
-- **17-test safety net:** primes, twins, factorisation, Goldbach, Collatz, Cantor diagonal, π (Leibniz + Monte Carlo), Prime Number Theorem band, Fermat search, groups (Z₆ + S₃), combinatorics `12C5=792`, Königsberg, calculus/FTC, chaos sign split, Euler characteristic, dice, Nash, live-fetch-never-crashes.
+- **17-test safety net (incl. `test_missing40_all_green`):** primes, twins, factorisation, Goldbach, Collatz, Cantor diagonal, π (Leibniz + Monte Carlo), Prime Number Theorem band, Fermat search, groups (Z₆ + S₃), combinatorics `12C5=792`, Königsberg, calculus/FTC, chaos sign split, Euler characteristic, dice, Nash, live-fetch-never-crashes, plus all 40 remaining Hacks in one gate.
 - **Live market validation:** Yahoo Finance → Stooq → seeded-synthetic cascade. Every fetch caches `{source, closes, dates, fetched_at}`. Hurst, skew/kurtosis + Jarque–Bera, volatility-clustering, annualised volatility per asset.
 - **8 benchmarks:** timings (sieve, Collatz, Goldbach, Leibniz, integral, dice, S₃, Lyapunov) + absolute accuracies (Leibniz 1e-4, integral 1e-9, derivative 1e-12).
 - **4 original hidden-pattern analyses** recomputed on every run (see below).
@@ -224,6 +224,33 @@ All values are in `results/tables/` and recomputed on your machine. Measured 202
 | Nash vs Pareto (#98) | (`betray`,`betray`) ≠ (`quiet`,`quiet`) | ✅ |
 | Turing toy (#99) | `1111 → 11111` | ✅ |
 | P vs NP timing (#100) | linear 10k scan vs 2¹⁵ subset search | ✅ contrast |
+
+### The missing 40 — now also executable (`src/maths_hacks/missing40.py`)
+
+All 40 remaining Hacks run in `experiments/run_all.py` (109 keys total, 100 distinct Hacks, 0 missing) and are gated by `test_missing40_all_green`:
+
+| Hacks | What the demo proves | Result |
+|---|---|---|
+| #1 Axiom/Theorem/Proof | even+even=even over 100 cases from one definition | ✅ proof chain holds |
+| #8 Products, #36 Binary ops, #37 Assoc/Comm/Dist | menu product 2×3=6; mod-6 closure; + assoc/comm, − not comm, × distributes, powers not assoc | ✅ |
+| #9 Maps, #12 Schröder–Bernstein | valid/invalid orders + bills; injections both ways → bijection | ✅ |
+| #16 Hilbert Hotel | shift frees room 1; doubling frees all odds | ✅ infinite property |
+| #20 Negatives, #21 Rationals | 3−5=−2; 2/3=4/6; division by zero blocked | ✅ |
+| #29 Continuum | finite 2ⁿ>n shown; independence surveyed, never "proved" | ✅ honest scope |
+| #35 Abstract algebra | same C3 pattern in hours and rotations | ✅ structure, not stuff |
+| #40 Finite simple, #46 Quintic | prime orders simple; x²+2x−15→(−5,3), general quintic formula none (S5) | ✅ |
+| #41 Lie, #43 Galois, #49 Homological | rotations preserve length; norm preserved under √2 flip; d₁∘d₂=0 | ✅ |
+| #54 Pathological | Dirichlet jumps; Weierstrass sum gets rougher with terms | ✅ |
+| #58 Div/Curl, #75 Curvature | div(x,y,z)=3 numeric; circle 1/r, line 0 | ✅ |
+| #60 Manifolds, #70 Topology, #71 Triangulation | S¹ samples on circle; sphere genus 0 / torus 1; tetra 4−6+4=2 | ✅ |
+| #61 Tensor, #62 Cov/Contra, #64 Dual, #65 Field | dim 2×3=6 (Kronecker 4×6); velocity ×1000 vs gradient ÷1000; dual of basis [1,2,3] | ✅ |
+| #66 Minimal, #67 Representation | flat disk beats bump; C3→SO(2) homomorphism | ✅ |
+| #68 Parallel, #79 Hyperbolic, #81 Thurston | plane one / sphere zero parallels; disk distance blows up; 8 geometries listed | ✅ |
+| #69 Impossible | ∛2 degree 3, rational-root test passes → not constructible | ✅ |
+| #73 Illumination | square room fully lit (200 rays); Penrose/Tokarsky surveyed | ✅ |
+| #74 Metric | Euclid/Manhattan/discrete all pass triangle inequality | ✅ |
+| #82 Projective, #83 Tesseract | parallels meet at [1:0:0]; 16 verts / 32 edges / 24 faces / 8 cells | ✅ |
+| #84 Algebraic topology, #85 Knots, #86 Poincaré, #88 Nullstellenssatz | winding 1 vs 0; trefoil tricolorable; Perelman surveyed; circle points satisfy ideal | ✅ |
 
 ## 🔬 Live market check — what SPY and BTC actually say
 
@@ -338,6 +365,7 @@ s = fetch_live_series("SPY"); print(s["source"], s["n"], s["closes"][-1])
 | `benchmarks/benchmark_all.py` | 8 timings + 6 accuracies → `benchmarks.json` | speed + error bars |
 | `tests/test_maths_hacks.py` | 17 tests — the gate | confidence before sharing |
 | `scripts/fetch_live_data.py` | Caches SPY/BTC/AAPL with source labels | fresh market snapshot |
+| `src/maths_hacks/missing40.py` | Demos for the other 40 Hacks (#1,8,9,12,16,20,21,29,35–37,40,41,43,46,49,54,58,60–62,64–71,73–75,79,81–86,88) | 100/100 with zero gaps |
 | `scripts/make_figures.py` | 6 PNGs + 1 GIF → `docs/assets/` | every image on this page |
 | `scripts/make_video.py` | MP4 if ffmpeg present, else keeps GIF canonical | full video path |
 | `PAPER.md` | Publishable draft (abstract → threats → future work) | start of a PhD paper |
@@ -351,7 +379,7 @@ maths-hacks-verified-2026/
 ├── README.md  PAPER.md  METHODOLOGY.md  CITATION.cff  LICENSE
 ├── preview.html  (+ docs/screenshots/preview_full.png)
 ├── Dockerfile  docker-compose.yml  Makefile  requirements.txt
-├── src/maths_hacks/{utils,numbers,calculus,algebra,geometry,stochastics}.py
+├── src/maths_hacks/{utils,numbers,calculus,algebra,geometry,stochastics,missing40}.py
 ├── experiments/{run_all.py, exp_live_market.py}
 ├── benchmarks/benchmark_all.py
 ├── tests/test_maths_hacks.py

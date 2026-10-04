@@ -50,7 +50,7 @@ footer{color:var(--mut);font-size:13px;margin-top:40px}
 <a class="btn ghost" href="#demo">▶ Watch the demo</a>
 <a class="btn ghost" href="#quickstart">⚡ Run it in 60 seconds</a>
 </p>
-<p class="kpi">Measured 2026-10-04 · Collatz 0 fails / 5,000 · Goldbach 0 fails / 500 · π(100)=25 exact · Leibniz π error 0.0001 · SPY n=251 live · BTC n=366 live</p>
+<p class="kpi">Measured 2026-10-04 · <b>100/100 Hacks executable</b> (109 keys incl. discoveries) · 17 tests pass · Collatz 0 fails / 5,000 · Goldbach 0 fails / 500 · π(100)=25 exact · SPY n=251 live · BTC n=366 live</p>
 </div>
 
 <h2 id="demo">▶ Demo — what moves here?</h2>
@@ -103,8 +103,8 @@ PYTHONPATH=src python experiments/exp_live_market.py # live SPY+BTC → results/
 
 <h2>✨ What you get — every feature</h2>
 <div class="grid">
-<div class="card"><b>100/100 mapped</b><br><small>Tricks (#1–13), Numbers (#14–34), Structure (#35–49), Change (#50–56), Space (#57–88), Reality (#89–100). Open problems labelled, never over-claimed.</small></div>
-<div class="card"><b>17-test gate</b><br><small>Primes, Goldbach, Collatz, π, FTC, groups, Euler, chaos signs, dice, Nash, live-fetch-never-crashes.</small></div>
+<div class="card"><b>100/100 mapped</b><br><small>All six parts incl. <code>missing40.py</code> for the other 40 (109 keys, 0 missing). Open problems labelled, never over-claimed.</small></div>
+<div class="card"><b>17-test gate</b><br><small>Incl. <code>test_missing40_all_green</code>: primes, Goldbach, Collatz, π, FTC, groups, Euler, chaos, dice, Nash, live-fetch.</small></div>
 <div class="card"><b>Live market check</b><br><small>Yahoo → Stooq → seeded fallback. SPY 251 + BTC 366 rows cached with source + date.</small></div>
 <div class="card"><b>4 hidden patterns</b><br><small>Benford-in-factorials, Collatz scaling, Goldbach growth, prime-gap census — recomputed each run.</small></div>
 <div class="card"><b>8 benchmarks</b><br><small>Wall-clock timings + absolute errors (Leibniz 1e-4, integral 1e-9, derivative 1e-12).</small></div>
@@ -146,7 +146,7 @@ ls -lh docs/assets/   # 6 PNGs + 1 GIF</code></pre>
 <h2 class="toc">🗂 Contents &amp; repo map</h2>
 <pre><code>preview.html  ← you are here (open directly, no server needed)
 README.md PAPER.md METHODOLOGY.md CITATION.cff LICENSE
-src/maths_hacks/{utils,numbers,calculus,algebra,geometry,stochastics}.py
+src/maths_hacks/{utils,numbers,calculus,algebra,geometry,stochastics,missing40}.py
 experiments/{run_all.py, exp_live_market.py}  benchmarks/benchmark_all.py
 tests/test_maths_hacks.py  scripts/{fetch_live_data.py, make_figures.py, make_video.py}
 docs/{assets/*.png+*.gif, screenshots/}  data/live_cache/  results/tables/</code></pre>
