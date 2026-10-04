@@ -111,3 +111,57 @@ def test_quaternion_noncommutative_structure():
     # i*j=k but j*i=-k (book #34): model with 2x2 complex matrices
     # i=(i,0;0,-i) pattern check via dict encoding: use known Pauli products
     assert True  # structural identity asserted; full matrix check in experiment docs
+
+
+def test_missing40_all_green():
+    from maths_hacks import missing40 as M
+    assert M.axiom_theorem_proof_demo()["proof_holds"]
+    assert M.product_demo()["expected_6"]
+    assert M.maps_demo()["valid_map_ok"] and M.maps_demo()["missing_order_detected"]
+    s = M.schroder_bernstein_demo()
+    assert s["injection_AB"] and s["injection_BA"] and s["bijection_ok"]
+    assert M.hilbert_hotel_demo()["shift_frees_room1"]
+    assert M.negative_numbers_demo()["expected_neg2"]
+    r = M.rational_numbers_demo()
+    assert r["two_thirds_eq"] and r["division_by_zero_blocked"]
+    assert M.continuum_demo()["finite_power_grows"]
+    assert M.abstract_algebra_demo()["mod3_closed"]
+    b = M.binary_operations_demo()
+    assert b["mod6_addition_closed"] and not b["division_is_binary_op"]
+    a = M.acd_demo()
+    assert a["add_associative"] and a["add_commutative"] and not a["sub_commutative"]
+    assert a["mul_distributes_over_add"] and a["power_associative_counterexample"]
+    assert 5 in M.finite_simple_demo()["prime_orders_simple"]
+    assert M.lie_group_demo()["lengths_preserved_200"]
+    assert M.galois_demo()["norm_preserved"]
+    assert M.quintic_demo()["quadratic_roots"] == [-5, 3]
+    assert M.homological_demo()["d1_after_d2_zero"]
+    p = M.pathological_demo()
+    assert p["dirichlet_jumps_seen"] and p["weierstrass_gets_rougher"]
+    assert M.div_curl_demo()["div_ok"]
+    assert M.manifold_demo()["all_on_circle"]
+    t = M.tensor_demo()
+    assert t["dim_2x3"] == 6 and t["expected_4x6"]
+    c = M.cov_contra_demo()
+    assert c["velocity_m_s"] == 1000 and c["gradient_per_m"] == 0.001
+    assert M.dual_demo()["expected_[1,2,3]"]
+    assert M.minimal_demo()["minimal_wins"]
+    assert M.representation_demo()["homomorphism_holds"]
+    assert M.parallel_demo()["sphere_parallels"] == 0
+    assert M.impossible_demo()["rational_root_test_passes"]
+    assert M.topology_demo()["torus_genus"] == 1
+    assert M.triangulation_demo()["euler_tetra"] == 2
+    assert M.illumination_demo()["square_fully_lit"]
+    m = M.metric_demo()
+    assert m["euclid_triangle"] and m["manhattan_triangle"] and m["discrete_triangle"]
+    assert M.curvature_demo()["circle_r2_curvature"] == 0.5
+    assert M.hyperbolic_demo()["blows_up_at_boundary"]
+    assert M.thurston_demo()["count_8"]
+    assert M.projective_demo()["is_point_at_infinity"]
+    te = M.tesseract_demo()
+    assert (te["vertices_2^4"], te["edges_4*2^3"]) == (16, 32)
+    assert M.algebraic_topology_demo()["loop_around_origin"] == 1
+    k = M.knot_demo()
+    assert k["trefoil_tricolorable"] and not k["unknot_tricolorable_gt1"]
+    assert M.poincare_demo()["status"].startswith("proved")
+    assert M.nullstellenssatz_demo()["all_on_circle"]

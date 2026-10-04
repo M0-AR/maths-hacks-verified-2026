@@ -10,6 +10,7 @@ from maths_hacks import calculus as C
 from maths_hacks import algebra as A
 from maths_hacks import geometry as G
 from maths_hacks import stochastics as S
+from maths_hacks import missing40 as M
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -98,6 +99,48 @@ def main() -> dict:
     H["098_game_theory"] = S.prisoners_dilemma()
     H["099_computability"] = {"unary_inc": S.turing_demo("1111"), "expected": "11111"}
     H["100_p_vs_np"] = S.poly_vs_exp_timing()
+
+    # Missing 40 — now fully implemented (no longer surveyed-only)
+    H["001_axiom_theorem_proof"] = M.axiom_theorem_proof_demo()
+    H["008_products"] = M.product_demo()
+    H["009_maps"] = M.maps_demo()
+    H["012_schroder_bernstein"] = M.schroder_bernstein_demo()
+    H["016_hilbert_hotel"] = M.hilbert_hotel_demo()
+    H["020_negatives"] = M.negative_numbers_demo()
+    H["021_rationals"] = M.rational_numbers_demo()
+    H["029_continuum"] = M.continuum_demo()
+    H["035_abstract_algebra"] = M.abstract_algebra_demo()
+    H["036_binary_ops"] = M.binary_operations_demo()
+    H["037_acd"] = M.acd_demo()
+    H["040_finite_simple"] = M.finite_simple_demo()
+    H["041_lie"] = M.lie_group_demo()
+    H["043_galois"] = M.galois_demo()
+    H["046_quintic"] = M.quintic_demo()
+    H["049_homological"] = M.homological_demo()
+    H["054_pathological"] = M.pathological_demo()
+    H["058_div_curl"] = M.div_curl_demo()
+    H["060_manifolds"] = M.manifold_demo()
+    H["061_tensor"] = M.tensor_demo()
+    H["062_cov_contra"] = M.cov_contra_demo()
+    H["064_dual"] = M.dual_demo()
+    H["065_tensor_field"] = M.tensor_field_demo()
+    H["066_minimal"] = M.minimal_demo()
+    H["067_representation"] = M.representation_demo()
+    H["068_parallel"] = M.parallel_demo()
+    H["069_impossible"] = M.impossible_demo()
+    H["070_topology"] = M.topology_demo()
+    H["071_triangulation"] = M.triangulation_demo()
+    H["073_illumination"] = M.illumination_demo()
+    H["074_metric"] = M.metric_demo()
+    H["075_curvature"] = M.curvature_demo()
+    H["079_hyperbolic"] = M.hyperbolic_demo()
+    H["081_thurston"] = M.thurston_demo()
+    H["082_projective"] = M.projective_demo()
+    H["083_tesseract"] = M.tesseract_demo()
+    H["084_algebraic_topology"] = M.algebraic_topology_demo()
+    H["085_knots"] = M.knot_demo()
+    H["086_poincare"] = M.poincare_demo()
+    H["088_nullstellenssatz"] = M.nullstellenssatz_demo()
 
     # Hidden-pattern discoveries (original contributions of this repo)
     H["DISC_benford_factorials"] = benford_factorials()

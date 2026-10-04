@@ -1,6 +1,6 @@
 # Maths Hacks Verified 2026 — 100 maths ideas you can run, see, and trust
 
-![pytest](https://img.shields.io/badge/pytest-16_passed-brightgreen)
+![pytest](https://img.shields.io/badge/pytest-17_passed-brightgreen)
 ![live](https://img.shields.io/badge/live-Yahoo_SPY_BTC-blue)
 ![docker](https://img.shields.io/badge/docker-reproducible-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -9,7 +9,7 @@
 > **Abstract — the 30-second version for busy people.**
 > This is the hands-on companion to Richard Cochrane’s *Maths Hacks* (100 short chapters from proof to infinity to markets).
 > Every chapter becomes a small Python experiment you can re-run: primes counted, Collatz journeys traced, dice rolled 60,000 times, chaos measured, live stock prices checked against the textbook random-walk model.
-> Everything is seeded, tested (16 tests), benchmarked, and Docker-reproducible.
+> Everything is seeded, tested (17 tests), benchmarked, and Docker-reproducible.
 > Open `preview.html` for the visual tour, follow the 🌱 Beginner Guide below, and you will understand — and be able to demonstrate — more real mathematics than most interview candidates.
 
 ![Demo: five Wiener paths spreading](docs/assets/demo_brownian.gif)
@@ -138,8 +138,8 @@ Then show the GIF. That is more signal than most candidates bring.
 
 ## ✨ Features — everything this repo does
 
-- **100/100 Hacks mapped:** Tricks of the Trade (#1–13), Numerous Numbers (#14–34), Science of Structure (#35–49), Continuity (#50–56), Maths in Space (#57–88), Maths Meets Reality (#89–100). Open conjectures are *verified to limits and surveyed* — never over-claimed.
-- **16-test safety net:** primes, twins, factorisation, Goldbach, Collatz, Cantor diagonal, π (Leibniz + Monte Carlo), Prime Number Theorem band, Fermat search, groups (Z₆ + S₃), combinatorics `12C5=792`, Königsberg, calculus/FTC, chaos sign split, Euler characteristic, dice, Nash, live-fetch-never-crashes.
+- **100/100 Hacks executed:** all 100 in `experiments/run_all.py` (109 keys incl. `DISC_*`) via `src/maths_hacks/` + `missing40.py`. Tricks of the Trade (#1–13), Numerous Numbers (#14–34), Science of Structure (#35–49), Continuity (#50–56), Maths in Space (#57–88), Maths Meets Reality (#89–100). Open conjectures are *verified to limits and surveyed* — never over-claimed.
+- **17-test safety net:** primes, twins, factorisation, Goldbach, Collatz, Cantor diagonal, π (Leibniz + Monte Carlo), Prime Number Theorem band, Fermat search, groups (Z₆ + S₃), combinatorics `12C5=792`, Königsberg, calculus/FTC, chaos sign split, Euler characteristic, dice, Nash, live-fetch-never-crashes.
 - **Live market validation:** Yahoo Finance → Stooq → seeded-synthetic cascade. Every fetch caches `{source, closes, dates, fetched_at}`. Hurst, skew/kurtosis + Jarque–Bera, volatility-clustering, annualised volatility per asset.
 - **8 benchmarks:** timings (sieve, Collatz, Goldbach, Leibniz, integral, dice, S₃, Lyapunov) + absolute accuracies (Leibniz 1e-4, integral 1e-9, derivative 1e-12).
 - **4 original hidden-pattern analyses** recomputed on every run (see below).
@@ -163,7 +163,7 @@ Then show the GIF. That is more signal than most candidates bring.
 
 ```bash
 pip install -r requirements.txt
-PYTHONPATH=src pytest tests/ -q                        # 16 passed
+PYTHONPATH=src pytest tests/ -q                        # 17 passed
 PYTHONPATH=src python experiments/run_all.py            # Hacks 1–100 → results/tables/experiment_summary.json
 PYTHONPATH=src python benchmarks/benchmark_all.py       # timings → results/tables/benchmarks.json
 PYTHONPATH=src python experiments/exp_live_market.py    # live SPY+BTC → results/tables/live_market.json
@@ -336,7 +336,7 @@ s = fetch_live_series("SPY"); print(s["source"], s["n"], s["closes"][-1])
 | `experiments/run_all.py` | Runs Hacks 1–100, writes `experiment_summary.json` | the whole verification |
 | `experiments/exp_live_market.py` | Hurst/JB/ARCH per asset, writes `live_market.json` | reality check |
 | `benchmarks/benchmark_all.py` | 8 timings + 6 accuracies → `benchmarks.json` | speed + error bars |
-| `tests/test_maths_hacks.py` | 16 tests — the gate | confidence before sharing |
+| `tests/test_maths_hacks.py` | 17 tests — the gate | confidence before sharing |
 | `scripts/fetch_live_data.py` | Caches SPY/BTC/AAPL with source labels | fresh market snapshot |
 | `scripts/make_figures.py` | 6 PNGs + 1 GIF → `docs/assets/` | every image on this page |
 | `scripts/make_video.py` | MP4 if ffmpeg present, else keeps GIF canonical | full video path |
